@@ -53,17 +53,17 @@ const login = asyncHandler(async (req, res) => {
   }
 
   const token = jwt.sign(
-  {
-    user: {
-      id: user._id,
-      username: user.username,
-      governmentId: user.governmentId,
-      role: user.role
-    }
-  },
-  process.env.ACCESS_TOKEN_SECRET,
-  { expiresIn: "30m" }
-);
+    {
+      user: {
+        id: user._id,
+        username: user.username,
+        governmentId: user.governmentId,
+        role: user.role
+      }
+    },
+    process.env.ACCESS_TOKEN_SECRET,
+    { expiresIn: "30m" }
+  );
 
 
   res.json({

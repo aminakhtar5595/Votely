@@ -6,7 +6,7 @@ const User = require("../models/userModel");
 // @route GET /profile
 // @access Private
 const getProfile = asyncHandler(async (req, res) => {
-  const user = await User.findById(req.user.id).select("-password"); // exclude password
+  const user = await User.findById(req.user.id).select("-password");
   if (!user) {
     return res.status(404).json({ message: "User not found" });
   }
